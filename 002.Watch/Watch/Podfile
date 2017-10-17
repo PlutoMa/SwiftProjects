@@ -1,0 +1,4 @@
+use_frameworks!
+target 'Watch' do
+pod 'SnapKit'
+end
