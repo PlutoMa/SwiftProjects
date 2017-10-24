@@ -25,7 +25,25 @@ class VideoCutter {
             outputPath = outputPath.convert.appendingPathComponent("output.mp4")
             try? fileManager.removeItem(atPath: outputPath)
             if let exportSession = exportSession as AVAssetExportSession? {
-                
+                exportSession.outputURL = URL.init(fileURLWithPath: outputPath)
+                exportSession.shouldOptimizeForNetworkUse = true
+                exportSession.outputFileType = .mp4
+                let start = CMTimeMakeWithSeconds(Float64(startTime), 600)
+                let duration = CMTimeMakeWithSeconds(Float64(duration), 600)
+                let range = CMTimeRangeMake(start, duration)
+                exportSession.timeRange = range
+                exportSession.exportAsynchronously {
+                    switch exportSession.status {
+                    case .completed:
+                        completion?(exportSession.outputURL as NSURL?, nil)
+                    case AVAssetExportSessionStatus.failed:
+                        print("Failed: \(String(describing: exportSession.error))")
+                    case AVAssetExportSessionStatus.cancelled:
+                        print("Failed: \(String(describing: exportSession.error))")
+                    default:
+                        print("default case")
+                    }
+                }
             }
         }
     }
