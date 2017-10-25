@@ -13,6 +13,9 @@
 		5730A6F31F99D1EF0073866E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5730A6F21F99D1EF0073866E /* Assets.xcassets */; };
 		5730A6F61F99D1EF0073866E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5730A6F41F99D1EF0073866E /* LaunchScreen.storyboard */; };
 		5730A6FE1F99D3900073866E /* VideoCutter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5730A6FD1F99D3900073866E /* VideoCutter.swift */; };
+		573410401FA01365003BA976 /* VedioSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5734103F1FA01365003BA976 /* VedioSplashViewController.swift */; };
+		573B20BF1FA0326A00802709 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 573B20BE1FA0326600802709 /* logo.png */; };
+		573B20C01FA0326D00802709 /* moments.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 573B20BD1FA0326600802709 /* moments.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		5730A6F51F99D1EF0073866E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5730A6F71F99D1EF0073866E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5730A6FD1F99D3900073866E /* VideoCutter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCutter.swift; sourceTree = "<group>"; };
+		5734103F1FA01365003BA976 /* VedioSplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VedioSplashViewController.swift; sourceTree = "<group>"; };
+		573B20BD1FA0326600802709 /* moments.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = moments.mp4; sourceTree = "<group>"; };
+		573B20BE1FA0326600802709 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +62,11 @@
 		5730A6EA1F99D1EF0073866E /* VideoSplash */ = {
 			isa = PBXGroup;
 			children = (
+				573B20BE1FA0326600802709 /* logo.png */,
+				573B20BD1FA0326600802709 /* moments.mp4 */,
 				5730A6EB1F99D1EF0073866E /* AppDelegate.swift */,
 				5730A6ED1F99D1EF0073866E /* ViewController.swift */,
+				5734103F1FA01365003BA976 /* VedioSplashViewController.swift */,
 				5730A6FD1F99D3900073866E /* VideoCutter.swift */,
 				5730A6EF1F99D1EF0073866E /* Main.storyboard */,
 				5730A6F21F99D1EF0073866E /* Assets.xcassets */,
@@ -126,9 +135,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				573B20BF1FA0326A00802709 /* logo.png in Resources */,
 				5730A6F61F99D1EF0073866E /* LaunchScreen.storyboard in Resources */,
 				5730A6F31F99D1EF0073866E /* Assets.xcassets in Resources */,
 				5730A6F11F99D1EF0073866E /* Main.storyboard in Resources */,
+				573B20C01FA0326D00802709 /* moments.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +153,7 @@
 				5730A6FE1F99D3900073866E /* VideoCutter.swift in Sources */,
 				5730A6EE1F99D1EF0073866E /* ViewController.swift in Sources */,
 				5730A6EC1F99D1EF0073866E /* AppDelegate.swift in Sources */,
+				573410401FA01365003BA976 /* VedioSplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
