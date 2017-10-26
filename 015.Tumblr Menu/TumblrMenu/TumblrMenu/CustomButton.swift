@@ -15,22 +15,33 @@ enum ButtonImagePosition : Int {
     case PositionRight
 }
 
-extension UIButton {
+class CustomButton: UIButton {
+    var positionType: ButtonImagePosition = .PositionTop
+    var space: CGFloat = 0.0
+    
     func setImageAndTitle(imageName: String, title: String, positionType: ButtonImagePosition, space: CGFloat) -> Void {
         
         setImage(UIImage(named: imageName), for: .normal)
         setTitle(title, for: .normal)
         setTitleColor(UIColor.white, for: .normal)
-
-        let imageViewLength = frame.height - 3 * space - titleLabel!.intrinsicContentSize.height
         
-        var imageEdgeInsets = UIEdgeInsets()
-        var titleEdgeInsets = UIEdgeInsets()
+        self.positionType = positionType
+        self.space = space
         
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
         switch positionType {
         case .PositionTop:
-            imageEdgeInsets = UIEdgeInsetsMake(space, (frame.width - imageViewLength) / 2.0, space * 2 + titleLabel!.intrinsicContentSize.height, (frame.width - imageViewLength) / 2.0)
-            titleEdgeInsets = UIEdgeInsetsMake(space, <#T##left: CGFloat##CGFloat#>, <#T##bottom: CGFloat##CGFloat#>, <#T##right: CGFloat##CGFloat#>)
+            var imageViewLength = frame.height - 3 * space - (titleLabel?.intrinsicContentSize.height ?? 0.0)
+            if imageViewLength > frame.width {
+                imageViewLength = frame.width
+            }
+            imageView?.frame = CGRect(x: 0, y: 0, width: imageViewLength, height: imageViewLength)
+            imageView?.center = CGPoint(x: frame.width / 2.0, y: space + imageViewLength / 2.0)
+            titleLabel?.frame = CGRect(x: 0, y: 0, width: titleLabel?.intrinsicContentSize.width ?? 0.0, height: titleLabel?.intrinsicContentSize.height ?? 0.0)
+            titleLabel?.center = CGPoint(x: frame.width / 2.0, y: frame.height - space - ((titleLabel?.intrinsicContentSize.height ?? 0.0) / 2.0))
             break
         case .PositionLeft:
             break
@@ -39,9 +50,6 @@ extension UIButton {
         case .PositionRight:
             break
         }
-        
-        self.imageEdgeInsets = imageEdgeInsets
-        self.titleEdgeInsets = titleEdgeInsets
-        
     }
 }
+
