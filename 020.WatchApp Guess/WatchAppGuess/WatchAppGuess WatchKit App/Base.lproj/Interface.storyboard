@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13196" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13051"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WatchAppGuess_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <slider width="1" alignment="left" value="0.59999999999999998" steps="5" id="RQm-dm-eSi">
+                            <connections>
+                                <action selector="updateSlider:" destination="AgC-eL-Hgc" id="Tjs-Cm-zle"/>
+                            </connections>
+                        </slider>
+                        <label alignment="center" verticalAlignment="center" text="Your guess:3" id="CrT-Cd-aVh"/>
+                        <button width="1" alignment="left" verticalAlignment="center" title="Guess" id="yKb-6h-F2r">
+                            <connections>
+                                <action selector="guessBtnAction" destination="AgC-eL-Hgc" id="ZJE-ju-24w"/>
+                            </connections>
+                        </button>
+                        <label alignment="center" verticalAlignment="bottom" id="04L-yr-uIJ"/>
+                        <label alignment="center" verticalAlignment="bottom" text="Press guess to play" minimumScaleFactor="0.59999999999999998" id="J8L-w1-QGx"/>
+                    </items>
+                    <connections>
+                        <outlet property="guessLabel" destination="CrT-Cd-aVh" id="wf7-rm-au7"/>
+                        <outlet property="guessResultLabel" destination="04L-yr-uIJ" id="1Mv-Xa-7Rr"/>
+                    </connections>
+                </controller>
+            </objects>
+        </scene>
+    </scenes>
+</document>
