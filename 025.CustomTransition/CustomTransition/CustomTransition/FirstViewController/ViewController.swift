@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     var collectionView: UICollectionView!
     var dataSource = [CustomModel]()
+    var selectedCell: CustomCollectionViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
