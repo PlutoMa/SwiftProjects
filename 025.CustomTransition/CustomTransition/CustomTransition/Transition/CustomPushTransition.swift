@@ -30,8 +30,17 @@ class CustomPushTransition: NSObject, UIViewControllerAnimatedTransitioning {
         container.addSubview(snapshotView!)
         
         toVC.bannerImageView.layoutIfNeeded()
-        
-        
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: UIViewAnimationOptions(), animations: {
+            snapshotView?.frame = toVC.bannerImageView.frame
+            fromVC.view.alpha = 0.0
+            toVC.view.alpha = 1.0
+        }) { (finish) in
+            snapshotView?.frame = toVC.bannerImageView.frame
+            fromVC.selectedCell.imageView.isHidden = false
+            toVC.bannerImageView.image = toVC.image
+            snapshotView?.removeFromSuperview()
+            
+            transitionContext.completeTransition(true)
+        }
     }
-    
 }

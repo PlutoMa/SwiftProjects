@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        self.navigationController?.delegate = self
+        self.navigationController?.delegate = self
         self.navigationController?.isNavigationBarHidden = true
         collectionView.reloadData()
     }
@@ -68,6 +68,23 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 20
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedCell = collectionView.cellForItem(at: indexPath) as! CustomCollectionViewCell
+        let detailVC = DetailViewController()
+        detailVC.image = self.selectedCell.imageView.image
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
+
+extension ViewController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if operation == UINavigationControllerOperation.push {
+            return CustomPushTransition()
+        } else {
+            return nil
+        }
     }
 }
 
