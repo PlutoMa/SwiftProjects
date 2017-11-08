@@ -1,0 +1,6 @@
+use_frameworks!
+
+target 'BeautyContest' do
+pod 'Koloda', '~> 4.0'
+pod 'SnapKit'
+end
